@@ -22,3 +22,12 @@ export const ExchangeInfo = ({ amount, from, to, rate, result }) => {
     </div>
   );
 };
+
+
+// exchangeInfo: {
+//       from: 'USD',
+//       to: 'UAH',
+//       amount: 15,
+//       rate: 40.456171,
+//       result: 606.842565
+//     },

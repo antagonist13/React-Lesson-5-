@@ -11,3 +11,5 @@ export const getUserInfo = async ({ latitude, longitude }) => {
   });
   return data;
 };
+
+// results[0].annotations.currency.iso_code

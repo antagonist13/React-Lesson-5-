@@ -1,17 +1,21 @@
-import { Container, Heading, Section } from 'components';
+import { Container, ExchangeForm, ExchangeInfo, Heading, Loader, Section } from 'components';
+import { useSelector } from 'react-redux';
+import { selectError, selectExchangeInfo, selectIsLoading } from 'reduxState/slice';
 
 const Home = () => {
-  const isError = false;
-
+  const isError = useSelector(selectError);
+  const exchangeInfo = useSelector(selectExchangeInfo);
+  const isLoading = useSelector(selectIsLoading)
   return (
     <Section>
       <Container>
+        <ExchangeForm />
+        {isLoading && <Loader/>}
+        {exchangeInfo && <ExchangeInfo {...exchangeInfo} />}
         <Heading info title="What currencies do you want to exchange?🙂" />
-
-        {isError && (
-          <Heading
+        {isError && (<Heading
             error
-            title="Something went wrong...😐 Check the data validity and try again!"
+            title={isError}
           />
         )}
       </Container>

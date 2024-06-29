@@ -1,11 +1,15 @@
 import { Suspense } from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { MdCurrencyExchange } from 'react-icons/md';
 
 import styles from './Header.module.css';
+import { useSelector } from 'react-redux';
+import { selectCurrency } from 'reduxState/slice';
 
-export const Header = () => {
+export const Header = ({ children }) => {
+  const baseCurrency = useSelector(selectCurrency)
+  
   return (
     <>
       <header className={styles.header}>
@@ -36,10 +40,10 @@ export const Header = () => {
             </ul>
           </nav>
         </div>
-       //✔ Add base currency here !!!
+       {baseCurrency && <p> Your base currency: {baseCurrency}</p> }
       </header>
       <Suspense fallback={null}>
-        <Outlet />
+        {children}
       </Suspense>
     </>
   );
