@@ -344,10 +344,8 @@ useEffect(() => {
 
 ```bash
 rates
-  .filter(
-    ([key]) => key !== baseCurrency && key.toLowerCase().includes(filter),
-  )
-  .map(([key, value]) => ({ key, value: (1 / value).toFixed(2) }));
+  .filter(([key]) => key !== baseCurrency && key.toLowerCase().includes(filter),)
+  .map(([key, value]) => ({ key, value: (1 / value).toFixed(2) }))
 ```
 
 На цьому етапі наше завдання виконане!😎 Вітаю з завершенням тестового завдання

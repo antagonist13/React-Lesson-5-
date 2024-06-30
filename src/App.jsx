@@ -3,9 +3,9 @@ import { Header } from 'components';
 import Home from 'pages/Home';
 import Rates from 'pages/Rates';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { getBaseCurrency } from 'reduxState/operations';
+import { getBaseCurrency} from 'reduxState/operations';
 import { setDefaultCurrency } from 'reduxState/slice';
 
 export const App = () => {
@@ -30,6 +30,7 @@ export const App = () => {
         setIsDenied(false)
       }
       dispatch(getBaseCurrency(crd))
+
     }
     function error(err) {
       console.warn(`ERROR(${err.code}): ${err.message}`);
